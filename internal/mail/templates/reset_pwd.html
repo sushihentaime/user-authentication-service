@@ -1,0 +1,41 @@
+{{define "subject"}}Reset Password Request{{end}}
+
+{{define "plainBody"}}
+Hi,
+
+We've received a request to reset the password for the account associated with {{.email}}.
+
+Please send a request to the `PUT /v1/users/password/update` endpoint with the following JSON
+body to activate your account:
+
+{"token": "{{.resetPasswordToken}}"}
+
+If you did not request a new password, please let us know immediately by replying to this email.
+
+Thanks,
+
+The Team
+{{end}}
+
+{{define "htmlBody"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html">
+</head>
+<body>
+    <p>Hi,</p>
+    <p>We've received a request to reset the password for the account associated with {{.email}}.</p>
+    <p>Please send a request to the <code>PUT /v1/users/password/update</code> endpoint with the 
+    following JSON body to activate your account:</p>
+    <pre><code>
+    {"token": "{{.resetPasswordToken}}"}
+    </code></pre>
+    <p>If you did not request a new password, please let us know immediately by replying to this email.</p>
+    <p>Thanks,</p>
+    <p>The Team</p>
+</body>
+</html>
+{{end}}
